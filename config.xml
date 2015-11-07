@@ -2,6 +2,7 @@
 
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap="http://phonegap.com/ns/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         id="app.paypal.test"
         version="1.0.0">
 
@@ -13,9 +14,9 @@
 
     <content src="index.html"/>
     
-    <preference name="phonegap-version" value="3.9.0"/>
+    <preference name="phonegap-version" value="cli-5.2.0"/>
 
-	<gap:plugin name="com.paypal.cordova.mobilesdk" source="npm" />
+	<gap:plugin name="com.paypal.cordova.mobilesdk" source="npm" version="3.1.13" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
 
     <access origin="*"/>
