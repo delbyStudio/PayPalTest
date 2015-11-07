@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:gap="http://phonegap.com/ns/1.0"
+        id="app.paypal.test"
+        version="1.0.0">
+
+    <name>PayPalTest</name>
+
+    <description>Test</description>
+
+    <author href="http://delbyDesign.it/" email="delbyDesign@hotmail.it">delbyDesign</author>
+
+    <content src="index.html"/>
+    
+    <preference name="phonegap-version" value="3.9.0"/>
+
+	<gap:plugin name="com.paypal.cordova.mobilesdk" source="npm" />
+    <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+
+    <access origin="*"/>
+
+</widget>
