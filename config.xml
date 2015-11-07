@@ -16,11 +16,7 @@
     
     <preference name="phonegap-version" value="cli-5.2.0"/>
 
-<<<<<<< HEAD
 	<gap:plugin name="com.paypal.cordova.mobilesdk" source="npm" version="3.1.13" />
-=======
-	<gap:plugin name="com.paypal.cordova.mobilesdk" source="plugins.cordova.io" />
->>>>>>> parent of 1045acc... npm
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
 
     <access origin="*"/>
