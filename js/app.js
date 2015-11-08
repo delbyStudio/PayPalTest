@@ -23,19 +23,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.module('appConstant', []).constant('shopSettings',{
-   
-   
+.constant('shopSettings',{   
    payPalSandboxId : 'ARAw-jmuQrKB8F8qaJIQMVuhMsRVP817c489PgjUFNE4dnMp83xms_tBjCA8-eNgdGTK-akbs0u-E8d2',
    payPalProductionId : 'ARg9zpxtPzJBg3iP-0NanqLHlY1pXiNhIUXt9HHnQIJgkicE5hFZM1PL5BN1tr8H9aZIsCMiqLOzZgWo',
    payPalEnv: 'PayPalEnvironmentSandbox',   // for testing  production for production
    payPalShopName : 'MyShopName',
    payPalMerchantPrivacyPolicyURL : 'https://mytestshop.com/policy',
-   payPalMerchantUserAgreementURL : 'https://mytestshop.com/policy'
-   
-   
-   
-    
+   payPalMerchantUserAgreementURL : 'https://mytestshop.com/policy'   
 })
 
 .config(function($stateProvider, $urlRouterProvider) {

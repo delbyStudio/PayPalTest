@@ -136,7 +136,8 @@ $scope.click = function(){
   PaypalService.initPaymentUI().then(function () {
         PaypalService.makePayment(12.23, "Crediti")
  });
-})
+  
+}
  
 })
 
