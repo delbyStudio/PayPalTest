@@ -2,8 +2,6 @@ angular.module('starter.controllers', ['ionic'])
 
 .factory('PaypalService', ['$q', '$ionicPlatform', 'shopSettings', '$filter', '$timeout', function ($q, $ionicPlatform, shopSettings, $filter, $timeout) {
 
-
-
         var init_defer;
         /**
          * Service object
@@ -59,7 +57,7 @@ angular.module('starter.controllers', ['ionic'])
          */
         function createPayment(total, name) {
                 
-            // "Sale  == >  immediate payment
+            // "Sale"  == >  immediate payment
             // "Auth" for payment authorization only, to be captured separately at a later time.
             // "Order" for taking an order, with authorization and capture to be done separately at a later time.
             var payment = new PayPalPayment("" + total, "EUR", "" + name, "Sale");
@@ -132,36 +130,11 @@ angular.module('starter.controllers', ['ionic'])
 
 .controller('DashCtrl', function($scope, PaypalService) {
 
-$scope.click = function(){
-  PaypalService.initPaymentUI().then(function () {
-        PaypalService.makePayment(12.23, "Crediti")
- });
-  
-}
- 
-})
-
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+$scope.buy = function(){
+    PaypalService.initPaymentUI().then(function () {
+          PaypalService.makePayment(1.00, "Gettoni GiftShop (x10)").then(function(){
+            window.alert("Pagamento Effettuato!");
+          });
+    }); 
+  }
 });
