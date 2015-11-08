@@ -78,8 +78,7 @@ angular.module('starter.services', ['ionic'])
             var config = new PayPalConfiguration({
               merchantName: shopSettings.payPalShopName, 
               merchantPrivacyPolicyURL: shopSettings.payPalMerchantPrivacyPolicyURL, 
-              merchantUserAgreementURL: shopSettings.payPalMerchantUserAgreementURL, 
-              payPalShippingAddressOption: 1
+              merchantUserAgreementURL: shopSettings.payPalMerchantUserAgreementURL
             });
             return config;
         }
