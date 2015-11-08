@@ -10,40 +10,25 @@ $ionicPlatform.ready(function(){
      };
 
     var config = new PayPalConfiguration({merchantName: "My test shop", merchantPrivacyPolicyURL: "https://mytestshop.com/policy", merchantUserAgreementURL: "https://mytestshop.com/agreement"});
-     
-$scope.onPayPalMobileInit = function(){
-     PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", config, $scope.onPrepareRender);
-   }
 
-    $scope.onSuccesfulPayment = function(payment) {
-     console.log("payment success: " + JSON.stringify(payment, null, 4));
-   }
-
-   $scope.onAuthorizationCallback = function(authorization) {
-     console.log("authorization: " + JSON.stringify(authorization, null, 4));
-   }
-
-   $scope.createPayment = function () {
-     // for simplicity use predefined amount
-     // optional payment details for more information check [helper js file](https://github.com/paypal/PayPal-Cordova-Plugin/blob/master/www/paypal-mobile-js-helper.js)
-     var paymentDetails = new PayPalPaymentDetails("50.00", "0.00", "0.00");
-     var payment = new PayPalPayment("50.00", "USD", "Awesome Sauce", "Sale", paymentDetails);
-     return payment;
-   }
-
-   $scope.onPrepareRender = function() {
-       PayPalMobile.renderSinglePaymentUI($scope.createPayment(), $scope.onSuccesfulPayment, $scope.onUserCanceled);
-   }
-
-   $scope.onUserCanceled = function(result) {
-     console.log(result);
-   }
-
-    PayPalMobile.init(clientIDs, $scope.onPayPalMobileInit());
-
-
+$scope.click = function(){
+PayPalMobile.init(clientIDs, function(){
+  PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", config, function(){
+      PayPalMobile.renderSinglePaymentUI(function(){
+        var paymentDetails = new PayPalPaymentDetails("50.00", "0.00", "0.00");
+        var payment = new PayPalPayment("50.00", "USD", "Awesome Sauce", "Sale", paymentDetails);
+        return payment;
+        }, 
+        function(){
+          console.log("payment success: " + JSON.stringify(payment, null, 4));
+        }, 
+        function(){
+          console.log(result);
+        });
+    });
 })
 
+}
 
 })
 
