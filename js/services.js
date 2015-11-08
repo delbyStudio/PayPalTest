@@ -60,7 +60,7 @@ angular.module('starter.services', ['ionic'])
             // "Sale"  == >  immediate payment
             // "Auth" for payment authorization only, to be captured separately at a later time.
             // "Order" for taking an order, with authorization and capture to be done separately at a later time.
-            var payment = new PayPalPayment("" + total, "EUR", "" + name, "Sale");
+            var payment = new PayPalPayment("" + total, "EUR", "" + name, "Sale").prototype.shippingAddress('del Buono', 'Via A.Sottile, 11', 'Villetta', 'San Severo', 'Italia', '71016', 'it-IT');
             return payment;
         }
         /**
@@ -78,7 +78,8 @@ angular.module('starter.services', ['ionic'])
             var config = new PayPalConfiguration({
               merchantName: shopSettings.payPalShopName, 
               merchantPrivacyPolicyURL: shopSettings.payPalMerchantPrivacyPolicyURL, 
-              merchantUserAgreementURL: shopSettings.payPalMerchantUserAgreementURL
+              merchantUserAgreementURL: shopSettings.payPalMerchantUserAgreementURL,
+              payPalShippingAddressOption: 1
             });
             return config;
         }
