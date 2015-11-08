@@ -14,7 +14,7 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.min.js"></script>
-    
+
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
     <script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
@@ -24,19 +24,53 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
   </head>
-  <body ng-app="starter">
-    <!--
-      The nav bar that will be updated as we navigate between views.
-    -->
-    <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-    </ion-nav-bar>
-    <!--
-      The views will be rendered in the <ion-nav-view> directive below
-      Templates are in the /templates folder (but you could also
-      have templates inline in this html file if you'd like).
-    -->
-    <ion-nav-view></ion-nav-view>
+  <body ng-app="paypal">
+    <ion-pane ng-controller="PayPalBuy">
+      <ion-header-bar class="bar-positive">
+        <h1 class="title">PayPal App (Test)</h1>
+      </ion-header-bar>
+      <ion-content class="padding" has-bouncing="true">
+      <div class="list">
+      <label class="item item-input item-select">
+    <div class="input-label">
+      Gettoni
+    </div>
+    <select ng-model="nGettoni">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Via</span>
+    <input type="text" ng-model="via" placeholder="Via dei Tigli, 11">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Città</span>
+    <input type="text" ng-model="citta" placeholder="Roma">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Codice Postale</span>
+    <input type="text" ng-model="cp" maxlength="5" placeholder="00001">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Provincia</span>
+    <input type="text" ng-model="provincia" style='text-transform:uppercase' maxlength="2" placeholder="RM">
+  </label>
+   <label class="item item-input item-stacked-label">
+    <span class="input-label">Paese</span>
+    <input type="text" ng-model="paese" style='text-transform:uppercase' maxlength="2" placeholder="IT">
+  </label>
+</div>
+      <button ng-click="buy(nGettoni, via, citta, cp, provincia, paese)" class="button icon-left ion-android-cart button-positive">Compra {{nGettoni}} gettoni a {{nGettoni/5}}&euro;</button>
+      </ion-content>
+    </ion-pane>
   </body>
 </html>

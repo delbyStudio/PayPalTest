@@ -1,4 +1,4 @@
-angular.module('starter.services', ['ionic'])
+angular.module('paypal.services', ['ionic'])
 
 .factory('PaypalService', ['$q', '$ionicPlatform', 'shopSettings', '$filter', '$timeout', function ($q, $ionicPlatform, shopSettings, $filter, $timeout) {
 
