@@ -75,7 +75,12 @@ angular.module('starter.services', ['ionic'])
          */
         function configuration() {
             // for more options see `paypal-mobile-js-helper.js`
-            var config = new PayPalConfiguration({merchantName: shopSettings.payPalShopName, merchantPrivacyPolicyURL: shopSettings.payPalMerchantPrivacyPolicyURL, merchantUserAgreementURL: shopSettings.payPalMerchantUserAgreementURL, payPalShippingAddressOption: 1});
+            var config = new PayPalConfiguration({
+              merchantName: shopSettings.payPalShopName, 
+              merchantPrivacyPolicyURL: shopSettings.payPalMerchantPrivacyPolicyURL, 
+              merchantUserAgreementURL: shopSettings.payPalMerchantUserAgreementURL, 
+              payPalShippingAddressOption: 1
+            });
             return config;
         }
 
