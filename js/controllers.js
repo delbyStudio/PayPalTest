@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic'])
+angular.module('starter.controllers', ['ionic', "firebase"])
 
 .controller('DashCtrl', function($scope, PaypalService, $ionicPopup) {
 
