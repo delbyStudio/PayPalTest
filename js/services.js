@@ -120,13 +120,13 @@ angular.module('starter.services', ['ionic'])
          * 
          * @returns {object} Promise gets resolved on successful payment, rejected on error 
          */
-        function makePayment(total, name) {
+        function makePayment(total, name, recipientName, line1, line2, city, state, postalCode, countryCode) {
 
 
             var defer = $q.defer();
             total = $filter('number')(total, 2);
             $ionicPlatform.ready().then(function () {
-                PayPalMobile.renderSinglePaymentUI(createPayment(total, name), function (result) {
+                PayPalMobile.renderSinglePaymentUI(createPayment(total, name, recipientName, line1, line2, city, state, postalCode, countryCode), function (result) {
                     $timeout(function () {
                         defer.resolve(result);
                     });
