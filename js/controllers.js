@@ -5,7 +5,7 @@ angular.module('starter.controllers', ['ionic'])
 $scope.buy = function(){
     PaypalService.initPaymentUI().then(function () {
           PaypalService.makePayment(1.00, "Gettoni GiftShop (x10)").then(function(){
-            window.alert("Pagamento Effettuato!");
+            window.alert("Pagamento Effettuato!"); //on successful
           });
     }); 
   }
