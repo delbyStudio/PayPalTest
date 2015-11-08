@@ -55,10 +55,17 @@ angular.module('starter.services', ['ionic'])
          * 
          * @returns {object} PayPalPaymentObject
          */
-        function createPayment(total, name) {
-
-            var shippingAddress = new PayPalShippingAddress('del Buono', 'Via A.Sottile 11', 'Villetta', 'San Severo', 'Italia', '71016', 'it-IT');
-            
+        function createPayment(total, name, recipientName, line1, line2, city, state, postalCode, countryCode) {
+            /**
+            * @param {String} recipientName: Name of the recipient at this address. 50 characters max.
+            * @param {String} line1: Line 1 of the address (e.g., Number, street, etc). 100 characters max.
+            * @param {String} Line 2 of the address (e.g., Suite, apt #, etc). 100 characters max. Optional.
+            * @param {String} city: City name. 50 characters max.
+            * @param {String} state: 2-letter code for US states, and the equivalent for other countries. 100 characters max. Required in certain countries.
+            * @param {String} postalCode: ZIP code or equivalent is usually required for countries that have them. 20 characters max. Required in certain countries.
+            * @param {String} countryCode: 2-letter country code. 2 characters max.
+            */
+            var shippingAddress = new PayPalShippingAddress(recipientName, line1, line2, city, state, postalCode, countryCode);
             // "Sale"  == >  immediate payment
             // "Auth" for payment authorization only, to be captured separately at a later time.
             // "Order" for taking an order, with authorization and capture to be done separately at a later time.
