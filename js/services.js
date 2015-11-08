@@ -70,7 +70,7 @@ angular.module('starter.services', ['ionic'])
             // "Auth" for payment authorization only, to be captured separately at a later time.
             // "Order" for taking an order, with authorization and capture to be done separately at a later time.
             var payment = new PayPalPayment("" + total, "EUR", "" + name, "Sale");
-            payment.shippingAddress(shippingAddress);
+            payment.shippingAddress(shippingAddress); //use this code to set a shippingAddress
             return payment;
         }
         /**
