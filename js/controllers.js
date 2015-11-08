@@ -4,14 +4,15 @@ angular.module('starter.controllers', ['ionic'])
 
 
 $ionicPlatform.ready(function(){
-  var clientIDs = {
+$scope.click = function(){
+
+var clientIDs = {
        "PayPalEnvironmentProduction": "ARg9zpxtPzJBg3iP-0NanqLHlY1pXiNhIUXt9HHnQIJgkicE5hFZM1PL5BN1tr8H9aZIsCMiqLOzZgWo",
        "PayPalEnvironmentSandbox": "ARAw-jmuQrKB8F8qaJIQMVuhMsRVP817c489PgjUFNE4dnMp83xms_tBjCA8-eNgdGTK-akbs0u-E8d2"
      };
 
-    var config = new PayPalConfiguration({merchantName: "My test shop", merchantPrivacyPolicyURL: "https://mytestshop.com/policy", merchantUserAgreementURL: "https://mytestshop.com/agreement"});
+var config = new PayPalConfiguration({merchantName: "My test shop", merchantPrivacyPolicyURL: "https://mytestshop.com/policy", merchantUserAgreementURL: "https://mytestshop.com/agreement"});
 
-$scope.click = function(){
 PayPalMobile.init(clientIDs, function(){
   PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", config, function(){
       PayPalMobile.renderSinglePaymentUI(function(){
@@ -24,11 +25,13 @@ PayPalMobile.init(clientIDs, function(){
         }, 
         function(){
           console.log(result);
-        });
-    });
+        })
+    })
 })
 
 }
+
+})
 
 })
 
